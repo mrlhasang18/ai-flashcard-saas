@@ -88,7 +88,44 @@ const navItems = [{
     <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
   ),
 },];
-export default function LampDemo() {
+export default function Landing() {
+
+  //Below this is the code for flashcard generation
+  const systemPrompt = `
+You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards. Make sure the theme is about superheroes.
+Both front and back should be one sentence long.
+You should return in the following JSON format:
+{
+  "flashcards":[
+    {
+      "front": "Front of the card",
+      "back": "Back of the card"
+    }
+  ]
+}
+`
+  const [output, setOutput] = useState('Click here to generate flashcards for your superhero')
+  const generateText = async ()=>{
+    try{
+      const response = await fetch("/api/generate", {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({body: systemPrompt})
+      });
+      const data = await response.json()
+
+      if(response.ok)
+      {
+        setOutput(data.output)
+      }else{
+        setOutput(data.error)
+      }
+    }catch(error){
+      console.error(error)
+    }
+  }
   return (
     <div>
       
@@ -115,7 +152,10 @@ export default function LampDemo() {
           Generate Flashcard
         </span>
       </button>
+
       </LampContainer>
+      <p onClick={generateText}>{output}</p>
+      
     </div>
   );
 }
