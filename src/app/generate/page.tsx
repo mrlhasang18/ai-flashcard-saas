@@ -10,6 +10,7 @@ export default function Generate() {
     );
   }
   
+
   function InnerGenerate() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [flashcards, setFlashcards] = useState([]);
@@ -20,8 +21,7 @@ export default function Generate() {
     const router = useRouter();
   
     const handleSubmit = async () => {
-      // Write a function for flashcard generation from the prompt
+      // function for flashcard generation from the prompt
     };
   
-    // Rest of your component code
   }
