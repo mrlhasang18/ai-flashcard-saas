@@ -10,7 +10,7 @@ export default function Home()
     <div>
       <Head>
         <title>Flashcard Saas</title>
-        <meta name="description" content="This is an app where you can make custom flashcards for your superhero."></meta>
+        <meta name="description" content="custom flashcards for your superhero."></meta>
       </Head>
       <Landing/>
       

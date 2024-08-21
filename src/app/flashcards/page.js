@@ -39,6 +39,9 @@ export default function Flashcards() {
 
     return (
         <Container maxWidth="lg">
+            <Typography variant="h4" align="center" sx={{ mt: 4 }}>
+            Saved Flashcards
+            </Typography>
             <Grid container spacing={3} sx={{ mt: 4 }}>
                 {flashcards.map((flashcard, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
