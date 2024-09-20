@@ -10,7 +10,7 @@ export default function SignInPage(){
             justifyContent={'center'}
             alignItems={'center'}
             >
-                <Clerk.SignIn/>
+            <Clerk.SignIn/>
             </Box>
         </div>
     )
